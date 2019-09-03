@@ -23,7 +23,7 @@ $("#add-train-btn").on("click", function(event){
     var trainName = $("#train-name-input").val().trim();
     var trainDest = $("#destination-input").val().trim();
     // THIS IS PROBABLY WRONG
-    var trainFirst = moment($("#firstArrive-input").val().trim(), "HH:mm").format("X");
+    var trainFirst = moment($("#firstArrive-input").val().trim(), "HH:mm").format("");
     var trainFreq = $("#frequency-input").val().trim();
 
 
@@ -79,7 +79,7 @@ database.ref().on("child_added", function(childSnapshot){
 
     // current time
     var currentTime = moment();
-    console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+    console.log("Current Time: " + moment(currentTime).format("HH:mm"));
 
     // difference between times
     var diffTime = moment().diff(moment(trainFirstConverted), "minutes");
@@ -95,14 +95,15 @@ database.ref().on("child_added", function(childSnapshot){
 
     // next train
     var trainNext = moment().add(minsTillTrain, "minutes");
-    console.log("Arrival time: " + moment(trainNext).format("hh:mm"));
+    console.log("Arrival time: " + moment(trainNext).format("HH:mm"));
+    var formattedTime = moment(trainNext).format("HH:mm");
 
     // create new row
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDest),
         $("<td>").text(trainFreq),
-        $("<td>").text(trainNext),
+        $("<td>").text(formattedTime),
         $("<td>").text(minsTillTrain),
     );
 
