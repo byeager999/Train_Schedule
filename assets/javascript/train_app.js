@@ -74,12 +74,12 @@ database.ref().on("child_added", function(childSnapshot){
     // calculate next train arrival time
 
 
-    var trainFirstConverted = moment(trainFirst, "HH:mm").subtract(1, "years");
+    var trainFirstConverted = moment(trainFirst, "hh:mm").subtract(1, "years");
     console.log(trainFirstConverted);
 
     // current time
     var currentTime = moment();
-    console.log("Current Time: " + moment(currentTime).format("HH:mm"));
+    console.log("Current Time: " + moment(currentTime).format("hh:mm"));
 
     // difference between times
     var diffTime = moment().diff(moment(trainFirstConverted), "minutes");
@@ -95,8 +95,8 @@ database.ref().on("child_added", function(childSnapshot){
 
     // next train
     var trainNext = moment().add(minsTillTrain, "minutes");
-    console.log("Arrival time: " + moment(trainNext).format("HH:mm"));
-    var formattedTime = moment(trainNext).format("HH:mm");
+    console.log("Arrival time: " + moment(trainNext).format("hh:mm"));
+    var formattedTime = moment(trainNext).format("hh:mm");
 
     // create new row
     var newRow = $("<tr>").append(
