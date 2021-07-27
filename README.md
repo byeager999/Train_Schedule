@@ -14,5 +14,5 @@ Train Schedule was built with:
 - Moment.js
 - Google Firebase
 
-Link to my github repository where the app resides:  https://byeager999.github.io/Train_Schedule/
+Link to the app:  https://byeager999.github.io/Train_Schedule/
 
